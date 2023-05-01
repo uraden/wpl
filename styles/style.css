@@ -519,12 +519,31 @@ header .logo a img {
   color: #EFD912;
 }
 
-.head-link:hover {
-  text-decoration: underline;
-  color: red;
-  text-decoration-skip: spaces;
-  text-underline-offset: 0.2em;
-  padding-bottom: 0.1em;
+@media screen and (min-width: 1200px) {
+  
+.head-link {
+  position: relative;
+  display: inline-block;
+  color: #EFD912;
+}
+
+.head-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 30px;
+  left: 0;
+  background-color: #EFD912;
+  transform-origin: bottom right;
+  transition: transform 0.30s ease-out;
+}
+
+.head-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 }
 
 .main-nav ul li i {
